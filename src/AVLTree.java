@@ -113,7 +113,7 @@ public class AVLTree<T extends Comparable<T>> {
             c = b.getRight();
             b.setRight(c.getLeft());
             c.setLeft(b);
-            a.setLeft(c.getLeft());
+            a.setLeft(c.getRight());
             c.setRight(a);
             if (c.getFatBal()==-1){
                 a.setFatBal(1);
@@ -143,6 +143,7 @@ public class AVLTree<T extends Comparable<T>> {
         if (r != null){
             passeioEmOrdem(r.getLeft());
             System.out.println(r.getInfo());
+            //System.out.println(r.getInfo() +" "+ r.getLeft() +" "+ r.getRight());
             passeioEmOrdem(r.getRight());
         }
     }
@@ -160,7 +161,7 @@ public class AVLTree<T extends Comparable<T>> {
             fila.add(r);
             int i = 0;
             while (fila.isEmpty() == false) {
-                System.out.println(" i"+i);
+                //System.out.println(" i"+i);
                 i++;
                 AVLNode<T> aux = fila.remove();
                 /*

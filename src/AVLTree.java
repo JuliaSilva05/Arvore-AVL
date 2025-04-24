@@ -86,7 +86,7 @@ public class AVLTree<T extends Comparable<T>> {
             if (c.getFatBal()==1){
                 a.setFatBal(-1);
             } else {
-                a.setFatBal(1);
+                a.setFatBal(0);
             }
             if (c.getFatBal() == -1){
                 b.setFatBal(1);
@@ -348,5 +348,36 @@ public class AVLTree<T extends Comparable<T>> {
             }
         }
 
+    }
+
+    public void procurar(T value){
+        if (isEmpty()){
+            System.out.println("Árvore vazia!");
+        } else {
+            if (search(value) != null){
+                System.out.println("Valor encontrado!");
+            } else {
+                System.out.println("Valor não encontrado!");
+            }
+        }
+    }
+    private AVLNode<T> search(T val){
+        AVLNode<T> aux = this.root;
+        while (aux != null) {
+            if (aux.getInfo() == val){
+                //System.out.println("Valor encontrado!");
+                break;
+            }
+            else if (aux.getInfo().compareTo(val) > 0){ // se aux.getinfo > val
+                aux = aux.getLeft();
+            }
+            else {
+                aux = aux.getRight();
+            }
+        }
+        //if (aux == null){
+            //System.out.println("Valor não encontrado!");
+        //}
+        return aux;
     }
 }

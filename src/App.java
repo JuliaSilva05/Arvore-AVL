@@ -16,7 +16,9 @@ public class App {
                     arvore.insert(num);
                     break;
                 case 2:
-                    
+                    System.out.println("Diga o número a ser procurado:");
+                    num = input.nextInt();
+                    arvore.procurar(num);
                     break;
                 case 3: 
                     System.out.println("Em ordem:");
@@ -48,6 +50,7 @@ public class App {
         System.out.println("3 - Exibir em ordem");
         System.out.println("4 - Exibir por nível");
         System.out.println("5 - Contar a altura da árvore");
+        System.out.println("6 - Remover valor");
         System.out.print("Informe a opção: ");
     }
     
